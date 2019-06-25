@@ -20,9 +20,7 @@ root.geometry("300x170")
 root.title("Twitter Analysis")
 heading = Label(text ="Welcome User",fg="black",bg="grey",width="400",height="2").pack()
 label1 = Label(root, text="Enter the term you want to search")
-
 E1 = Entry(root,bd =5)
-
 label2 = Label(root, text="Enter the no. of tweets")
 E2 = Entry(root,bd =5)
 
@@ -54,7 +52,6 @@ def execute():
         root3.title("Warning!")
         Label(root3, text="No. of tweets should be integer", fg="red").pack()
 
-
 def getData():
     getE1()
     searchTerm = getE1()
@@ -64,7 +61,6 @@ def getData():
     NoOfTerms = int(NoOfTerms)
 
     tweets = tweepy.Cursor(api.search, q=searchTerm).items(NoOfTerms)
-
 
     positive = 0
     negative = 0
@@ -92,17 +88,14 @@ def getData():
         except StopIteration:
                 break
 
-
     positive = percentage(positive, NoOfTerms)
     negative = percentage(negative, NoOfTerms)
     neutral = percentage(neutral, NoOfTerms)
     polarity = percentage(polarity, NoOfTerms)
 
-
     positive = format(positive, '.2f')
     negative = format(negative, '.2f')
     neutral = format(neutral, '.2f')
-
 
     print("How people are reacting on " + searchTerm +
         " By analyzing " + str(NoOfTerms) + " Tweets ")
@@ -115,7 +108,6 @@ def getData():
 
     elif (polarity > 0.00):
         print("Positive")
-
 
     labels = ['Positive [' + str(positive) + '%]',
             'Neutral [' + str(neutral) + '%]',
