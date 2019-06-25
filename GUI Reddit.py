@@ -37,13 +37,8 @@ def getData():
     subreddit = reddit.subreddit(getE1())
 
     for comment in subreddit.comments(limit=100):
-
-
         try:
-
             print(comment.body)
-
-
         except praw.exceptions.PRAWException as e:
             print(str(e))
 
@@ -70,12 +65,9 @@ def getData():
     neutral = percentage(neutral, 100)
     polarity = percentage(polarity, 100)
 
-
     positive = format(positive, '.2f')
     negative = format(negative, '.2f')
     neutral = format(neutral, '.2f')
-
-
 
     print("How people are reacting on " + getE1() +
             " By analyzing " + str(100) + " Reddit Comments")
@@ -88,8 +80,6 @@ def getData():
 
     elif (polarity > 0.00):
         print("Positive")
-
-
 
     labels = ['Positive [' + str(positive) + '%]',
           'Neutral [' + str(neutral) + '%]',
